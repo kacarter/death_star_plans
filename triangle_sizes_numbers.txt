@@ -1,0 +1,12 @@
+Side 'A' length : 12.55" Red
+Side 'B' length : 14.53" Blue
+Side 'C' length : 14.85" Green
+
+45 X Panels
+30 Y Panels
+X: C, C, B height: 12.95"
+Y: A, A, B height: 10.23"
+
+Calculator used: http://geo-dome.co.uk/3v_tool.asp
+Assembly diagram: https://cdn.instructables.com/ORIG/F8J/IHSZ/J1QOYI2L/F8JIHSZJ1QOYI2L.pdf (from http://www.instructables.com/id/Geodesic-Dome-From-Laser-Cut-Cardboard/)
+
