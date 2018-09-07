@@ -5,7 +5,7 @@ x = 0.0
 y = 0.0
 z = 2.0
 r = 2.0
-spacing = 14.0 / 240.0
+spacing = 10.0 / 210.0
 spacing_2 = z / 30.0
 
 (0..3).each do |i|
