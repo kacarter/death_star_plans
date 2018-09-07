@@ -18,11 +18,9 @@ spacing_2 = z / 30.0
   end
 end
 
-(4..5).each do |i|
-  (0..29).each do |j|
-    radius = r - (j * spacing_2)
-    points << [radius * Math.cos((i * Math::PI) / 3.0 ), radius * Math.sin((i * Math::PI) / 3.0), j * spacing_2]
-  end
+(0..29).each do |j|
+  radius = r - (j * spacing_2)
+  points << [radius * Math.cos((4 * Math::PI) / 3.0 ), radius * Math.sin((4 * Math::PI) / 3.0), j * spacing_2]
 end
 
 (0..209).each do |i|
