@@ -11,10 +11,11 @@ num_spokes = 5
 strip_length = 64
 client = opc.Client('127.0.0.1:22368')
 #client = opc.Client('127.0.0.1:7890')
-serial_port = serial.Serial('/dev/tty.usbserial', 9600)
+serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 
 while True:
-    button_status = serial_port.readline()
+    button_status = serial_port.readline().decode().strip('\r\n')
+    #print(button_status)
     if (button_status == '1'):
         pixels = [(0,0,0)] * numLEDs
         for i in range(spoke_length):
