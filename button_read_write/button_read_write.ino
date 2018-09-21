@@ -11,5 +11,5 @@ void setup() {
 void loop() {
   int buttonState = digitalRead(button);
   Serial.println(buttonState); // 1 is on (pushed), 0 is off
-  delay(100);
+  delay(75);
 }

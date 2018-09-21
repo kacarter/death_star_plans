@@ -14,6 +14,7 @@ client = opc.Client('127.0.0.1:22368')
 serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 
 while True:
+    serial_port.reset_input_buffer()
     button_status = serial_port.readline().decode().strip('\r\n')
     #print(button_status)
     if (button_status == '1'):
