@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-# Adapted from fadecandy's chase.py
+# Adapted from fadecandy's chase.py and https://stackoverflow.com/questions/36634807/how-do-i-open-an-mp4-video-file-with-python
 
-import opc, time, serial
+import opc, time, serial, cv2
 
 numLEDs = 512
 laser_length = 90
@@ -12,6 +12,8 @@ strip_length = 64
 client = opc.Client('127.0.0.1:22368')
 #client = opc.Client('127.0.0.1:7890')
 serial_port = serial.Serial('/dev/ttyUSB0', 9600)
+video_file = cv2.VideoCapture('sintel_trailer-480p.mp4')
+ret, frame = video_file.read()
 
 while True:
     serial_port.reset_input_buffer()
@@ -61,3 +63,17 @@ while True:
               pixels[i - laser_length + 286] = (0, 0, 0)
             client.put_pixels(pixels)
             time.sleep(0.15)
+
+        for i in range(laser_length):
+            pixels[i + 495 - laser_length + 1] = (0, 0, 0)
+            client.put_pixels(pixels)
+            time.sleep(0.15)
+
+        while True:
+            ret, frame = video_file.read()
+            cv2.imshow('frame', frame)
+            if (cv2.waitKey(1) & 0xFF == ord('q') or ret == False):
+                video_file.release()
+                cv2.destroyAllWindows()
+                break
+            cv2.imshow('frame', frame)
