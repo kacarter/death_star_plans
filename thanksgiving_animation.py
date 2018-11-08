@@ -25,7 +25,7 @@ def background_animation():
     global pixel_off
     for b in range(background_pixels):
         if b % 6 in [background_counter, (background_counter + 1) % 6, (background_counter + 2) % 6]:
-            pixels[b + (num_spokes * strip_length)] = (0, 255, 0)
+            pixels[b + (num_spokes * strip_length)] = (255, 165, 0)
         if b % 6 in [(background_counter + 3) % 6, (background_counter + 4) % 6, (background_counter + 5) % 6]:
             pixels[b + (num_spokes * strip_length)] = pixel_off
     background_counter = (background_counter + 1) % 6
@@ -46,7 +46,7 @@ def play_animation():
     for i in range(spoke_length):
         for j in range(num_spokes):
             for k in range(i):
-                pixels[(j * strip_length) + k] = (0, 150, 0)
+                pixels[(j * strip_length) + k] = (150, 0, 0)
                 if k % 4 == i % 4:
                     pixels[(j * strip_length) + k] = pixel_off
         background_animation()
@@ -58,9 +58,9 @@ def play_animation():
             for k in range(spoke_length):
                 if i >= 10 and k >= 10:
                     extra_brightness = (((i - 10) % 20) * ((k - 10) % 20)) / 4
-                    pixels[(j * strip_length) + k] = (extra_brightness * 1.5, 164 + extra_brightness, extra_brightness * 1.5)
+                    pixels[(j * strip_length) + k] = (164 + extra_brightness, extra_brightness * 1.5, extra_brightness)
                 else:
-                    pixels[(j * strip_length) + k] = (0, 150, 0)
+                    pixels[(j * strip_length) + k] = (150, 0, 0)
                 if k % 4 == i % 4:
                     pixels[(j * strip_length) + k] = pixel_off
         background_animation()
@@ -68,15 +68,15 @@ def play_animation():
         time.sleep(animation_speed)
 
     for i in range(strip_length - spoke_length):
-        pixels[i + ((num_spokes - 1) * strip_length) + spoke_length] = (0, 255, 0)
+        pixels[i + ((num_spokes - 1) * strip_length) + spoke_length] = (255, 230, 0)
         if i <= laser_length + spoke_length:
             for j in range(num_spokes):
                 for k in range(spoke_length):
                     if (k >= 10):
                         extra_brightness = (19 * ((k - 10) % 20)) / 4
-                        pixels[(j * strip_length) + k] = (extra_brightness * 1.5, 164 + extra_brightness, extra_brightness * 1.5)
+                        pixels[(j * strip_length) + k] = (164 + extra_brightness, extra_brightness * 1.5, extra_brightness)
                     else:
-                        pixels[(j * strip_length) + k] = (0, 150, 0)
+                        pixels[(j * strip_length) + k] = (150, 0, 0)
                     if (k % 4 == i % 4):
                         pixels[(j * strip_length) + k] = pixel_off
                 if (i > laser_length - spoke_length):
