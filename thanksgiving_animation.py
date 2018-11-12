@@ -98,8 +98,10 @@ def play_animation():
     pixels = [pixel_off] * numLEDs
     client.put_pixels(pixels)
 
-
-serial_port = serial.Serial('/dev/ttyUSB0', 9600)
+try:
+    serial_port = serial.Serial('/dev/ttyUSB1', 9600)
+except:
+    serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 sound = "death_star.mp3"
 
 while True:
