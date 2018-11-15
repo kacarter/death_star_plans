@@ -104,12 +104,25 @@ try:
 except:
     serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 sound = "happy_birthday.mp3"
+button_error = False
 
 while True:
     try:
+        if button_error == True:
+            try:
+                serial_port = serial.Serial('/dev/ttyUSB1', 9600)
+                button_error = False
+            except:
+                try:
+                    serial_port = serial.Serial('/dev/ttyUSB0', 9600)
+                    button_error = False
+                except:
+                    button_error = True
         button_status = serial_port.readline().decode().strip('\r\n')
     except:
         print("button error")
+        button_error = True
+        time.sleep(10)
         pass
     # print(button_status)
     if (button_status == '1'):
