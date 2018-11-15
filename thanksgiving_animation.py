@@ -121,7 +121,7 @@ while True:
     except:
         print("button error")
         button_error = True
-        time.sleep(10)
+        time.sleep(300)
         pass
     # print(button_status)
     if (button_status == '1'):
