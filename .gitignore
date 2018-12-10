@@ -1,3 +1,6 @@
 gl_server
 opc.py
 opc.pyc
+.python-version
+__pycache__/
+happy_birthday.mp3
